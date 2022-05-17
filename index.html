@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                background-color: aqua;
+            }
+            img
+            {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body onload="myFunction:AutoRefresh(5000);">
+
+        <div id="dailyCanvas">
+            <img id="imgSun" src="https://static.wixstatic.com/media/390165_74b1f37cd8a0430795a125e4aded8930~mv2.png" alt="">
+            <img id="imgMon" src="https://static.wixstatic.com/media/390165_5987e20b5fbb49e99b51017140dc937a~mv2.jpg" alt="">
+            <img id="imgTue" src="https://static.wixstatic.com/media/390165_259189cc6e7440f9b32c9be87b3562f0~mv2.png" alt="">
+            <img id="imgWed" src="https://static.wixstatic.com/media/7eae9a_4e234ecf433441009fe747a423e33749~mv2.png" alt="">
+            <img id="imgThu" src="https://static.wixstatic.com/media/7eae9a_ea867c9c683e46e79383c399ecb2abf1~mv2.png" alt="">
+            <img id="imgFri" src="https://static.wixstatic.com/media/390165_164296c4ec614013943f141f2343696d~mv2.png" alt="">
+            <img id="imgSat" src="https://static.wixstatic.com/media/390165_a2c8af3648e04b1280a534ec88540f6f~mv2.png" alt="">
+        </div>
+
+
+        <script> 
+            function AutoRefresh( t ) {
+                setTimeout("location.reload(true);", t);
+                
+                var n =   Date.now()
+
+                var sun = document.getElementById("imgSun");
+                var mon = document.getElementById("imgMon");
+                var tue = document.getElementById("imgTue");
+                var wed = document.getElementById("imgWed");
+                var thu = document.getElementById("imgThu");
+                var fri = document.getElementById("imgFri");
+                var sat = document.getElementById("imgSat");
+
+                var today = new Date();
+                var weekday = new Array(7);
+                weekday[0] = "Sunday";
+                weekday[1] = "Monday";
+                weekday[2] = "Tuesday";
+                weekday[3] = "Wednesday";
+                weekday[4] = "Thursday";
+                weekday[5] = "Friday";
+                weekday[6] = "Saturday";
+                var daynum=today.getDay(); //number 0-Sunday 6-Saturday
+                var day=weekday[daynum];  //string
+
+                if(day=="Sunday")
+                  sun.style.display='block';
+
+                else if(day=="Monday")
+                  mon.style.display='block';
+
+                else if(day=="Tuesday")
+                    tue.style.display='block';
+                
+                else if(day=="Wednesday")
+                    wed.style.display='block';
+
+                else if(day=="Thursday")
+                  thu.style.display='block';
+
+                else if(day=="Friday")
+                  fri.style.display='block';
+
+                else if(day=="Saturday")
+                  sat.style.display='block';
+            }
+        </script>
+        
+    </body>
+</html>
